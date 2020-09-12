@@ -54,7 +54,7 @@ class ContentView: OCKDailyPageViewController {
     override func dailyPageViewController(_ dailyPageViewController: OCKDailyPageViewController,
                                           prepare listViewController: OCKListViewController, for date: Date) {
 
-        let identifiers = ["levetiracetam"]
+        let identifiers = ["medication", "seizureLog"]
         var query = OCKTaskQuery(for: date) //A query that limits which task your fetch returns
         query.ids = identifiers //This looks for tasks that have the id listed in the variable identifiers. The tasks were created in AppDelegate.swift
         query.excludesTasksWithNoEvents = true //False is default
@@ -66,10 +66,17 @@ class ContentView: OCKDailyPageViewController {
 
 
                 // Create a card for the levetiracetam task if there are events for it on this day.
-                if let levetiracetamTask = tasks.first(where: { $0.id == "levetiracetam" }) {
+                if let levetiracetamTask = tasks.first(where: { $0.id == "medication" }) {
                     let levetiracetamCard = OCKChecklistTaskViewController(task: levetiracetamTask, eventQuery: .init(for: date),
                                                                         storeManager: self.storeManager)
                     listViewController.appendViewController(levetiracetamCard, animated: false)
+                }
+                
+                if let seizureLogTask = tasks.first(where: {$0.id == "seizureLog"}) {
+                    
+                    let seizureLogCard = OCKButtonLogTaskViewController(task: seizureLogTask, eventQuery: .init(for: date), storeManager: self.storeManager)
+                    
+                    listViewController.appendViewController(seizureLogCard, animated: false)
                 }
 
             }
