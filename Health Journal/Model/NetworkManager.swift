@@ -10,14 +10,14 @@ import Foundation
 
 struct NetworkManager {
     
-    let taskURL = "http://ec2co-ecsel-w7q6c99ot638-2098345273.us-east-1.elb.amazonaws.com:5000/api/tasks/"
-        
+    let taskURL = ProcessInfo.processInfo.environment["apiURL"]
+    
     func fetchTask(userID: String) {
         //let urlString = "\(taskURL)/\(userID)" I am assuming this is how we will get task in future
         
         //performRequest(urlString: urlString)
         
-        performRequest(urlString: taskURL)
+        performRequest(urlString: taskURL!)
     }
     
     func performRequest(urlString: String){
