@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             window = UIWindow(windowScene: windowScene)
             window?.rootViewController = contentView
-            window?.tintColor = UIColor { $0.userInterfaceStyle == .light ? #colorLiteral(red: 0.9960784314, green: 0.3725490196, blue: 0.368627451, alpha: 1) : #colorLiteral(red: 0.8627432641, green: 0.2630574384, blue: 0.2592858295, alpha: 1) }
+            window?.tintColor = UIColor { $0.userInterfaceStyle == .light ? #colorLiteral(red: 0.2408578992, green: 0.6738678217, blue: 1, alpha: 1) : #colorLiteral(red: 0, green: 0.2834656835, blue: 0.6651299596, alpha: 1) }
             window?.makeKeyAndVisible()
         }
     }
