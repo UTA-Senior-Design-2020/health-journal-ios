@@ -13,11 +13,15 @@ struct NetworkManager {
     let taskURL = ProcessInfo.processInfo.environment["apiURL"]
     
     func fetchTask(userID: String) {
-        //let urlString = "\(taskURL)/\(userID)" I am assuming this is how we will get task in future
         
-        //performRequest(urlString: urlString)
+        /*
+         I am assuming this is how we will get task in future
+         let urlString = "\(userID)/\(tasks)"
+         performRequest(urlString: urlString)
+        */
         
-        performRequest(urlString: taskURL!)
+        performRequest(urlString: "http://localhost:5000/tasks/")
+        
     }
     
     func performRequest(urlString: String){
