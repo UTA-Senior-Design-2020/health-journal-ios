@@ -18,9 +18,6 @@
 		0F48FCFC24F83376001E36C6 /* CareKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0F48FCFB24F83376001E36C6 /* CareKit */; };
 		0F48FCFE24F83C82001E36C6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F48FCFD24F83C82001E36C6 /* Default-568h@2x.png */; };
 		0F549476250D275C00DA20A8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F549475250D275C00DA20A8 /* NetworkManager.swift */; };
-		0FFA98572537CD66002AFE12 /* Lobster-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FFA98562537CD66002AFE12 /* Lobster-Regular.ttf */; };
-		0FFA985B2537D020002AFE12 /* Lobster-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FFA98562537CD66002AFE12 /* Lobster-Regular.ttf */; };
-		0FFA985F2537D021002AFE12 /* Lobster-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FFA98562537CD66002AFE12 /* Lobster-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F2D1013253B82E9004F2D9D /* Lobster-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lobster-Regular.ttf"; sourceTree = "<group>"; };
 		0F48FCC024F76BC4001E36C6 /* Health Journal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Health Journal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F48FCC324F76BC4001E36C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F48FCC524F76BC4001E36C6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,7 +55,6 @@
 		0F48FCE724F76BC7001E36C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F48FCFD24F83C82001E36C6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		0F549475250D275C00DA20A8 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		0FFA98562537CD66002AFE12 /* Lobster-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lobster-Regular.ttf"; path = "../../../../../../../Downloads/Lobster/Lobster-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +83,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F2D1017253B8327004F2D9D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0F2D1013253B82E9004F2D9D /* Lobster-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		0F48FCB724F76BC4001E36C6 = {
 			isa = PBXGroup;
 			children = (
@@ -175,18 +180,10 @@
 		0F48FCF624F8323D001E36C6 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
-				0FFA98552537CD27002AFE12 /* Fonts */,
+				0F2D1017253B8327004F2D9D /* Fonts */,
 				0F48FCC924F76BC7001E36C6 /* Assets.xcassets */,
 			);
 			path = "Supporting files";
-			sourceTree = "<group>";
-		};
-		0FFA98552537CD27002AFE12 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				0FFA98562537CD66002AFE12 /* Lobster-Regular.ttf */,
-			);
-			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,7 +296,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FFA98572537CD66002AFE12 /* Lobster-Regular.ttf in Resources */,
 				0F48FCD024F76BC7001E36C6 /* LaunchScreen.storyboard in Resources */,
 				0F48FCFE24F83C82001E36C6 /* Default-568h@2x.png in Resources */,
 				0F48FCCD24F76BC7001E36C6 /* Preview Assets.xcassets in Resources */,
@@ -311,7 +307,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FFA985B2537D020002AFE12 /* Lobster-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,7 +314,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FFA985F2537D021002AFE12 /* Lobster-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
