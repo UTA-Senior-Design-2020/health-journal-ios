@@ -20,7 +20,7 @@ struct NetworkManager {
          performRequest(urlString: urlString)
          */
         
-        performRequest(urlString: "http://localhost:5000/tasks/")
+        performRequest(urlString: "http://localhost:3000/tasks/")
         
     }
     
@@ -39,7 +39,7 @@ struct NetworkManager {
                 }
                 
                 if let safeData = data {
-                    parseJSON(userData: safeData)
+                    //parseJSON(taskData: safeData)
                 }
             }
             
@@ -48,9 +48,17 @@ struct NetworkManager {
         }
     }
     
-    func parseJSON(userData: Data) {
-        
-    }
+//    func parseJSON(taskData: Data) {
+//        let decoder = JSONDecoder()
+//
+//        do {
+//            let decoderData = try decoder.decode(TaskData.self, from: taskData)
+//            print(decoderData.tasks[0].Title)
+//        } catch {
+//            print(error)
+//        }
+//
+//    }
     
     //Also we can watch section 17 video 231. This video seemes most relatable/relevant
 }
