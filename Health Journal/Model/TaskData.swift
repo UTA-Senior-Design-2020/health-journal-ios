@@ -8,19 +8,20 @@
 
 import Foundation
 
-//struct TaskData: Decodable {
-//    let tasks = [Tasks]
-//}
-//
-//struct Tasks : Decodable {
-//    let TaskId: Int
-//    let Title: String?
-//    let StartDate: String
-//    let EndDate: String?
-//    let Frequency: Int
-//    let Instruction: String?
-//    let ImpactAdherence: Int
-//    let TaskType: Int
-//    let PlotType: Int
-//    let PatientId: Int
-//}
+struct TaskData: Decodable {
+    let tasks = [Tasks]()
+    
+}
+
+struct Tasks : Decodable {
+    let TaskId: Int
+    let Title: String?
+    let StartDate: String
+    let EndDate: String?
+    let Frequency: Int
+    let Instruction: String?
+    let ImpactAdherence: Int
+    let TaskType: Int
+    let PlotType: Int
+    let PatientId: Int
+}

@@ -39,7 +39,7 @@ struct NetworkManager {
                 }
                 
                 if let safeData = data {
-                    //parseJSON(taskData: safeData)
+                    parseJSON(taskData: safeData)
                 }
             }
             
@@ -48,17 +48,17 @@ struct NetworkManager {
         }
     }
     
-//    func parseJSON(taskData: Data) {
-//        let decoder = JSONDecoder()
-//
-//        do {
-//            let decoderData = try decoder.decode(TaskData.self, from: taskData)
-//            print(decoderData.tasks[0].Title)
-//        } catch {
-//            print(error)
-//        }
-//
-//    }
+    func parseJSON(taskData: Data) {
+        let decoder = JSONDecoder()
+
+        do {
+            let decoderData = try decoder.decode(TaskData.self, from: taskData)
+            print(decoderData.tasks[0].Title ?? "unable to print")
+        } catch {
+            print(error)
+        }
+
+    }
     
     //Also we can watch section 17 video 231. This video seemes most relatable/relevant
 }
