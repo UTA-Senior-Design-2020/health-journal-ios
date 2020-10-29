@@ -8,19 +8,18 @@
 
 import Foundation
 
-struct TaskData: Decodable {
-    let tasks = [Tasks]()
-    
+struct TaskData: Codable {
+    let tasks: [Tasks]
 }
 
-struct Tasks : Decodable {
+struct Tasks : Codable {
     let TaskId: Int
     let Title: String?
     let StartDate: String
     let EndDate: String?
     let Frequency: Int
     let Instruction: String?
-    let ImpactAdherence: Int
+    let ImpactsAdherence: Int
     let TaskType: Int
     let PlotType: Int
     let PatientId: Int

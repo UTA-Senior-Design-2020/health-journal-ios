@@ -12,6 +12,8 @@ struct NetworkManager {
     
     let taskURL = ProcessInfo.processInfo.environment["apiURL"]
     
+    var userTasks: [Tasks]
+        
     func fetchTask(userID: String) {
         
         /*
@@ -19,7 +21,6 @@ struct NetworkManager {
          let urlString = "\(userID)/\(tasks)"
          performRequest(urlString: urlString)
          */
-        
         performRequest(urlString: "http://localhost:3000/tasks/")
         
     }
@@ -49,16 +50,18 @@ struct NetworkManager {
     }
     
     func parseJSON(taskData: Data) {
+                
         let decoder = JSONDecoder()
 
         do {
             let decoderData = try decoder.decode(TaskData.self, from: taskData)
-            print(decoderData.tasks[0].Title ?? "unable to print")
+            userTasks = decoderData.tasks
         } catch {
-            print(error)
+            print("Error: \(error)")
         }
 
     }
+
+    //So I have to find a way to pass the data from networkmanager to appdelegate file.
     
-    //Also we can watch section 17 video 231. This video seemes most relatable/relevant
 }

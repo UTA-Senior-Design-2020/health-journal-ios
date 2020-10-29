@@ -53,6 +53,7 @@ private extension OCKStore {
         
         networkManager.fetchTask(userID: "hello")
         
+        
         let currentDate = Calendar.current.startOfDay(for: Date())
         let afternoonAtSevenMedication = Calendar.current.date(byAdding: .hour, value: 19, to: currentDate)!
         let beforeBreakfast = Calendar.current.date(byAdding: .hour, value: 8, to:currentDate)!
