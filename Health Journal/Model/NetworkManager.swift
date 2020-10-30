@@ -62,6 +62,6 @@ struct NetworkManager {
 
     }
 
-    //So I have to find a way to pass the data from networkmanager to appdelegate file.
+    // TODO: So I have to find a way to pass the data from networkmanager to appdelegate file.
     
 }
