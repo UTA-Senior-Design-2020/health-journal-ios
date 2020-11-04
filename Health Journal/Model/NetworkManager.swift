@@ -5,27 +5,26 @@
 //  Created by Sadrac Tijerina on 9/12/20.
 //  Copyright © 2020 M-A-I-D-S. All rights reserved.
 //
-
 import Foundation
 
 struct NetworkManager {
     
     let taskURL = ProcessInfo.processInfo.environment["apiURL"]
     
-    var userTasks: [Tasks]
-        
-    func fetchTask(userID: String) {
+    
+    func fetchTask(userID: String) -> TaskData? {
         
         /*
          I am assuming this is how we will get task in future
          let urlString = "\(userID)/\(tasks)"
          performRequest(urlString: urlString)
          */
-        performRequest(urlString: "http://localhost:3000/tasks/")
+        //performRequest(urlString: "http://localhost:3000/tasks/")
         
-    }
-    
-    func performRequest(urlString: String){
+        let urlString = "http://localhost:3000/tasks/"
+        
+        var taskData: TaskData?
+        
         //creating a URL object
         if let url = URL(string: urlString) {
             
@@ -40,28 +39,26 @@ struct NetworkManager {
                 }
                 
                 if let safeData = data {
-                    parseJSON(taskData: safeData)
+                    let decoder = JSONDecoder()
+                    
+                    do {
+                        let decoderData = try decoder.decode(TaskData.self, from: safeData)
+                        taskData = decoderData
+                    } catch {
+                        print("Error: \(error)")
+                    }
+                    
                 }
             }
             
             //Step 4 we start the task
             task.resume()
         }
+        
+        print("TaskData in network manager: \(taskData)")
+        return taskData
     }
     
-    func parseJSON(taskData: Data) {
-                
-        let decoder = JSONDecoder()
-
-        do {
-            let decoderData = try decoder.decode(TaskData.self, from: taskData)
-            userTasks = decoderData.tasks
-        } catch {
-            print("Error: \(error)")
-        }
-
-    }
-
     // TODO: So I have to find a way to pass the data from networkmanager to appdelegate file.
     
 }

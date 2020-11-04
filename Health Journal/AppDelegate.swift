@@ -23,7 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         store.populateSampleData()
         
-        //OCKSynchronizedStoreManager is what makes it possible to use another database
+        //OCKSynchronizedStoreManager  is what makes it possible to use another database
+        //TODO: This is where I add the database. Still need to figure it out.
+        //We can wrap our server on the OCKSycnronizedStoreManager
+        
         let manager = OCKSynchronizedStoreManager(wrapping: store)
         return manager
     }()
@@ -51,8 +54,10 @@ private extension OCKStore {
         
         let networkManager = NetworkManager()
         
-        networkManager.fetchTask(userID: "hello")
+        let taskData = networkManager.fetchTask(userID: "hello")
         
+        print(taskData)
+                
         
         let currentDate = Calendar.current.startOfDay(for: Date())
         let afternoonAtSevenMedication = Calendar.current.date(byAdding: .hour, value: 19, to: currentDate)!
@@ -92,6 +97,8 @@ private extension OCKStore {
         addTasks([medication, seizureLog], callbackQueue: .main, completion: nil)
                 
     }
+    
+    
 }
 
 
