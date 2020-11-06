@@ -11,8 +11,8 @@ import CareKit
 import Contacts
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
 
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // Manages synchronization of a CoreData store
     lazy var synchronizedStoreManager: OCKSynchronizedStoreManager = {
@@ -47,17 +47,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
-private extension OCKStore {
 
+
+
+private extension OCKStore {
+    
     // Add tasks and contacts into the store in this function
     func populateSampleData() {
         
-        let networkManager = NetworkManager()
+        var networkManager = NetworkManager(userID: "hello")
         
-        let taskData = networkManager.fetchTask(userID: "hello")
-        
-        print(taskData)
-                
+        print(networkManager.userTasks)
         
         let currentDate = Calendar.current.startOfDay(for: Date())
         let afternoonAtSevenMedication = Calendar.current.date(byAdding: .hour, value: 19, to: currentDate)!

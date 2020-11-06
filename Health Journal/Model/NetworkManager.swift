@@ -9,21 +9,18 @@ import Foundation
 
 struct NetworkManager {
     
+    var userTasks: Array<Tasks>
     let taskURL = ProcessInfo.processInfo.environment["apiURL"]
     
-    
-    func fetchTask(userID: String) -> TaskData? {
-        
+    init(userID: String){
         /*
          I am assuming this is how we will get task in future
          let urlString = "\(userID)/\(tasks)"
-         performRequest(urlString: urlString)
          */
-        //performRequest(urlString: "http://localhost:3000/tasks/")
         
         let urlString = "http://localhost:3000/tasks/"
         
-        var taskData: TaskData?
+        userTasks = Array<Tasks>()
         
         //creating a URL object
         if let url = URL(string: urlString) {
@@ -43,11 +40,12 @@ struct NetworkManager {
                     
                     do {
                         let decoderData = try decoder.decode(TaskData.self, from: safeData)
-                        taskData = decoderData
+                        for object in decoderData.tasks {
+                            userTasks.append(object)
+                        }
                     } catch {
                         print("Error: \(error)")
                     }
-                    
                 }
             }
             
@@ -55,10 +53,5 @@ struct NetworkManager {
             task.resume()
         }
         
-        print("TaskData in network manager: \(taskData)")
-        return taskData
     }
-    
-    // TODO: So I have to find a way to pass the data from networkmanager to appdelegate file.
-    
 }
