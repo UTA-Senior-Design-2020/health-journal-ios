@@ -7,7 +7,7 @@
 		<key>UIImageRespectsSafeAreaInsets</key>
 		<false/>
 		<key>UIColorName</key>
-		<string>LaunchScreenColor</string>
+		<string>BackgroundColor</string>
 		<key>UIImageName</key>
 		<string>LaunchScreen</string>
 	</dict>
