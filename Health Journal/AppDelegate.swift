@@ -56,8 +56,9 @@ private extension OCKStore {
     func populateSampleData() {
         
         var networkManager = NetworkManager(userID: "hello")
-        
+            
         print(networkManager.userTasks)
+        
         
         let currentDate = Calendar.current.startOfDay(for: Date())
         let afternoonAtSevenMedication = Calendar.current.date(byAdding: .hour, value: 19, to: currentDate)!

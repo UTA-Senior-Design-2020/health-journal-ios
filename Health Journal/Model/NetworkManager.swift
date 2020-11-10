@@ -7,7 +7,7 @@
 //
 import Foundation
 
-struct NetworkManager {
+class NetworkManager {
     
     var userTasks: Array<Tasks>
     let taskURL = ProcessInfo.processInfo.environment["apiURL"]
@@ -37,18 +37,16 @@ struct NetworkManager {
                 
                 if let safeData = data {
                     let decoder = JSONDecoder()
-                    
                     do {
                         let decoderData = try decoder.decode(TaskData.self, from: safeData)
                         for object in decoderData.tasks {
-                            userTasks.append(object)
+                            self.userTasks.append(object)
                         }
                     } catch {
                         print("Error: \(error)")
                     }
                 }
             }
-            
             //Step 4 we start the task
             task.resume()
         }
