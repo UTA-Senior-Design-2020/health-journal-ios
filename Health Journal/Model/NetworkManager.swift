@@ -7,53 +7,34 @@
 //
 
 import Foundation
+import Alamofire
+
 
 struct NetworkManager {
-    
+    private let userId: String
     let taskURL = ProcessInfo.processInfo.environment["apiURL"]
     
-    func fetchTask(userID: String) {
-        
-        /*
-         I am assuming this is how we will get task in future
-         let urlString = "\(userID)/\(tasks)"
-         performRequest(urlString: urlString)
-        */
-        
-        performRequest(urlString: "http://localhost:5000/tasks/")
-        
+    public init(userId: String) {
+        self.userId = userId
     }
     
-    func performRequest(urlString: String){
-        //Step 1 create a URL object
-        if let url = URL(string: urlString) {
+    func fetchTasks(completion: @escaping (Tasks) -> Void){
+        let urlString = "http://localhost:5000/patients/\(self.userId)/tasks"
+        print(urlString)
+        AF.request(urlString).responseJSON{
+            response in
+            if let data = response.data{
+                do{
+                    print(data)
+                    let response = try JSONDecoder().decode(Tasks.self, from: data)
+                    completion(response)
+                }catch{
+                    print("Server Returned Nothing")
+                }
+                
+            }
             
-            //Step 2 we create a URLSession this does the networking
-            let session = URLSession(configuration: .default)
-            
-            //Step 3 we give a URLSession a task
-            let task = session.dataTask(with: url, completionHandler: handle(data: response: error:))
-            
-            //Step 4 we start the task
-            task.resume()
-        }
-    }
-    
-    func handle(data: Data?, response: URLResponse?, error: Error?){
-        if error != nil {
-            print(error!)
-            return
         }
         
-        if let safeData = data {
-            let dataString = String(data: safeData, encoding: .utf8)
-            print(dataString)
-        }
     }
-    
-    
-    
-    //Watch section 13 video 161 to do this
-    
-    //Also we can watch section 17 video 231. This video seemes most relatable/relevant
 }

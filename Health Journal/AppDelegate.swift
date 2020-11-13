@@ -48,48 +48,30 @@ private extension OCKStore {
 
     // Add tasks and contacts into the store in this function
     func populateSampleData() {
-        
-        let networkManager = NetworkManager()
-        
-        networkManager.fetchTask(userID: "hello")
-        
-        let currentDate = Calendar.current.startOfDay(for: Date())
-        let afternoonAtSevenMedication = Calendar.current.date(byAdding: .hour, value: 19, to: currentDate)!
-        let beforeBreakfast = Calendar.current.date(byAdding: .hour, value: 8, to:currentDate)!
-        
-        let schedule = OCKSchedule(composing: [OCKScheduleElement(start: afternoonAtSevenMedication, end: nil, interval: DateComponents(day: 1))])
-        
-        var medication = OCKTask(id: "medication", title: "Take Levetiracetam Medicine", carePlanID: nil, schedule: schedule)
-        
-        medication.instructions = "Take 2500mg of levetiracetam everyday at 7pm"
-        
-        
-        //These two errors are causing contradictions
-        
-//        addTask(medication) { result in
-//            switch result {
-//            case .failure(let error): print("Add Error: \(error)")
-//            case .success: (print("Sucess task added"))
-//            }
-//
-//        }
-        
-//        updateTask(medication) { result in
-//            switch result {
-//            case .failure(let error): print("Update Error: \(error)")
-//            case .success: (print("Success task updated"))
-//            }
-//        }
-        
-        
-        let seizureSchedule = OCKSchedule(composing: [OCKScheduleElement(start: beforeBreakfast, end: nil, interval: DateComponents(day:1), text: "Anytime thrhoughout the day", targetValues: [], duration: .allDay)])
-        var seizureLog = OCKTask(id: "seizureLog", title: "Track your seizures", carePlanID: nil, schedule: seizureSchedule)
-        seizureLog.impactsAdherence = false
-        seizureLog.instructions = "Tap the button below anytime you experience a seizure"
-        
-        
-        addTasks([medication, seizureLog], callbackQueue: .main, completion: nil)
+        var taskObjects = [OCKTask]()
+        let networkManager = NetworkManager(userId: "1")
+        networkManager.fetchTasks(){
+            response in
+            
+            for task in response.data{
+                print("task:", task)
+                let currentDate = Calendar.current.startOfDay(for: Date())
+                let afternoonAtSevenMedication = Calendar.current.date(byAdding: .hour, value: 13, to: currentDate)!
+
+                let schedule = OCKSchedule(composing: [OCKScheduleElement(start: afternoonAtSevenMedication, end: nil, interval: DateComponents(day: 1))])
                 
+                var taskObj = OCKTask(id: "medication", title: task.Title, carePlanID: nil, schedule: schedule)
+                taskObj.instructions = task.Instruction
+//                self.addTask(taskObj, callbackQueue: .main, completion: nil)
+                taskObjects.append(taskObj)
+                
+            }
+            self.addTasks(taskObjects, callbackQueue: .main, completion: nil)
+            // TODO View is not rendering these tasks on load. The user has to switch pages for it to load the data...
+        }
+        
+        
+                        
     }
 }
 

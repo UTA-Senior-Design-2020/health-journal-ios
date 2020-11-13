@@ -17,6 +17,8 @@
 		0F48FCFC24F83376001E36C6 /* CareKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0F48FCFB24F83376001E36C6 /* CareKit */; };
 		0F48FCFE24F83C82001E36C6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F48FCFD24F83C82001E36C6 /* Default-568h@2x.png */; };
 		0F549476250D275C00DA20A8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F549475250D275C00DA20A8 /* NetworkManager.swift */; };
+		2C34CEF7255DF86400ACF9D0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2C34CEF6255DF86400ACF9D0 /* Alamofire */; };
+		2C34CEFF255E5FBC00ACF9D0 /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C34CEFE255E5FBC00ACF9D0 /* Tasks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,7 @@
 		0F48FCE724F76BC7001E36C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F48FCFD24F83C82001E36C6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		0F549475250D275C00DA20A8 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		2C34CEFE255E5FBC00ACF9D0 /* Tasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tasks.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +63,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F48FCFC24F83376001E36C6 /* CareKit in Frameworks */,
+				2C34CEF7255DF86400ACF9D0 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				0F549475250D275C00DA20A8 /* NetworkManager.swift */,
+				2C34CEFE255E5FBC00ACF9D0 /* Tasks.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 			name = "Health Journal";
 			packageProductDependencies = (
 				0F48FCFB24F83376001E36C6 /* CareKit */,
+				2C34CEF6255DF86400ACF9D0 /* Alamofire */,
 			);
 			productName = "Health Journal";
 			productReference = 0F48FCC024F76BC4001E36C6 /* Health Journal.app */;
@@ -266,6 +272,7 @@
 			mainGroup = 0F48FCB724F76BC4001E36C6;
 			packageReferences = (
 				0F48FCFA24F83376001E36C6 /* XCRemoteSwiftPackageReference "CareKit" */,
+				2C34CEF5255DF86400ACF9D0 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 0F48FCC124F76BC4001E36C6 /* Products */;
 			projectDirPath = "";
@@ -313,6 +320,7 @@
 				0F549476250D275C00DA20A8 /* NetworkManager.swift in Sources */,
 				0F48FCC424F76BC4001E36C6 /* AppDelegate.swift in Sources */,
 				0F48FCC624F76BC4001E36C6 /* SceneDelegate.swift in Sources */,
+				2C34CEFF255E5FBC00ACF9D0 /* Tasks.swift in Sources */,
 				0F48FCC824F76BC4001E36C6 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -631,6 +639,14 @@
 				minimumVersion = 2.0.1;
 			};
 		};
+		2C34CEF5255DF86400ACF9D0 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -638,6 +654,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0F48FCFA24F83376001E36C6 /* XCRemoteSwiftPackageReference "CareKit" */;
 			productName = CareKit;
+		};
+		2C34CEF6255DF86400ACF9D0 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C34CEF5255DF86400ACF9D0 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
