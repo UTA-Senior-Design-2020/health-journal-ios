@@ -20,12 +20,10 @@ struct NetworkManager {
     
     func fetchTasks(completion: @escaping (Tasks) -> Void){
         let urlString = "http://localhost:5000/patients/\(self.userId)/tasks"
-        print(urlString)
         AF.request(urlString).responseJSON{
             response in
             if let data = response.data{
                 do{
-                    print(data)
                     let response = try JSONDecoder().decode(Tasks.self, from: data)
                     completion(response)
                 }catch{
