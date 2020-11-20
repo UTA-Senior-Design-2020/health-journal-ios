@@ -53,8 +53,9 @@ class ContentView: OCKDailyPageViewController {
     
     override func dailyPageViewController(_ dailyPageViewController: OCKDailyPageViewController,
                                           prepare listViewController: OCKListViewController, for date: Date) {
-
-        let identifiers = ["medication", "seizureLog"]
+        
+    
+        let identifiers = ["1", "2", "3"]
         var query = OCKTaskQuery(for: date) //A query that limits which task your fetch returns
         query.ids = identifiers //This looks for tasks that have the id listed in the variable identifiers. The tasks were created in AppDelegate.swift
         query.excludesTasksWithNoEvents = true //False is default
@@ -66,19 +67,26 @@ class ContentView: OCKDailyPageViewController {
 
 
                 // Create a card for the levetiracetam task if there are events for it on this day.
-                if let levetiracetamTask = tasks.first(where: { $0.id == "medication" }) {
-                    let levetiracetamCard = OCKChecklistTaskViewController(task: levetiracetamTask, eventQuery: .init(for: date),
+                if let levetiracetamTask = tasks.first(where: { $0.id == "1" }) {
+                    let levetiracetamCard = OCKInstructionsTaskViewController(task: levetiracetamTask, eventQuery: .init(for: date),
                                                                         storeManager: self.storeManager)
+                    
                     listViewController.appendViewController(levetiracetamCard, animated: false)
                 }
                 
-                if let seizureLogTask = tasks.first(where: {$0.id == "seizureLog"}) {
+                if let depekeneTask = tasks.first(where: {$0.id == "2"}) {
+                    
+                    let depekeneCard = OCKInstructionsTaskViewController(task: depekeneTask, eventQuery: .init(for: date), storeManager: self.storeManager)
+                    
+                    listViewController.appendViewController(depekeneCard, animated: false)
+                }
+
+                if let seizureLogTask = tasks.first(where: {$0.id == "3"}) {
                     
                     let seizureLogCard = OCKButtonLogTaskViewController(task: seizureLogTask, eventQuery: .init(for: date), storeManager: self.storeManager)
                     
                     listViewController.appendViewController(seizureLogCard, animated: false)
                 }
-
             }
         }
     }

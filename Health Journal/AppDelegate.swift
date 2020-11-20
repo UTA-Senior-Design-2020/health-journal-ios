@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //OCKStore is basically just a on-device database, here we are creating it
         //We can use any other database as well as long as it works with OCKStore protocol
-        let store = OCKStore(name: "SampleAppStore1")
+        let store = OCKStore(name: "SampleAppStore4")
         
         store.populateSampleData()
         
@@ -48,36 +48,37 @@ private extension OCKStore {
 
     // Add tasks and contacts into the store in this function
     func populateSampleData() {
-        var taskObjects = [OCKTask]()
+        //var taskObjects = [OCKTask]()
         let networkManager = NetworkManager(userId: "1")
         networkManager.fetchTasks(){
             response in
             
             for task in response.data{
-                print("task: \(task.Title!)")
                 let currentDate = Calendar.current.startOfDay(for: Date())
-                let afternoonAtSevenMedication = Calendar.current.date(byAdding: .hour, value: 13, to: currentDate)!
+                let afternoonAtSevenMedication = Calendar.current.date(byAdding: .hour, value: 19, to: currentDate)!
                 let schedule = OCKSchedule(composing: [OCKScheduleElement(start: afternoonAtSevenMedication, end: nil, interval: DateComponents(day: task.Frequency))])
-                
                 
                 switch task.TaskType {
                 case 1:
                     print("In case 1")
                     var taskObj = OCKTask(id: String(task.TaskId), title: task.Title, carePlanID: nil, schedule: schedule)
                     if task.ImpactsAdherence == 0 { taskObj.impactsAdherence = false }
-                    taskObjects.append(taskObj)
+                    //taskObjects.append(taskObj)
+                    self.addTask(taskObj, callbackQueue: .main, completion: nil)
                 case 2:
                     print("In case 2")
                     var taskObj = OCKTask(id: String(task.TaskId), title: task.Title, carePlanID: nil, schedule: schedule)
                     taskObj.instructions = task.Instruction
                     if task.ImpactsAdherence == 0 { taskObj.impactsAdherence = false }
-                    taskObjects.append(taskObj)
+                    //taskObjects.append(taskObj)
+                    self.addTask(taskObj, callbackQueue: .main, completion: nil)
                 case 3:
                     print("In case 3")
                     var taskObj = OCKTask(id: String(task.TaskId), title: task.Title, carePlanID: nil, schedule: schedule)
                     taskObj.instructions = task.Instruction
                     taskObj.impactsAdherence = false
-                    taskObjects.append(taskObj)
+                    //taskObjects.append(taskObj)
+                    self.addTask(taskObj, callbackQueue: .main, completion: nil)
                 case 4:
                     print("This is for a checklist task, not sure what the task object info it needs")
                 case 5:
@@ -86,18 +87,13 @@ private extension OCKStore {
                     print("In default which is case 1")
                     var taskObj = OCKTask(id: String(task.TaskId), title: task.Title, carePlanID: nil, schedule: schedule)
                     if task.ImpactsAdherence == 0 { taskObj.impactsAdherence = false }
-                    taskObjects.append(taskObj)
+                    //taskObjects.append(taskObj)
+                    self.addTask(taskObj, callbackQueue: .main, completion: nil)
                 }
-                
-                //                self.addTask(taskObj, callbackQueue: .main, completion: nil)
                 
             }
             
-            self.addTasks(taskObjects, callbackQueue: .main, completion: nil)
-            // TODO: View is not rendering these tasks on load. The user has to switch pages for it to load the data...
         }
-        
-        
         
     }
 }
