@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 private extension OCKStore {
 
-    // Add tasks and contacts into the store in this function
+    // Add tasks and contacts into the sstore in this function
     func populateSampleData() {
         
         let networkManager = NetworkManager()
