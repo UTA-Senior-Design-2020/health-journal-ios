@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import CareKit
+import Firebase
 
 //OCKDailyViewController is a view controller that displays a calender in the header, and a page view controller in the body
 class ContentView: OCKDailyPageViewController {
@@ -16,12 +17,25 @@ class ContentView: OCKDailyPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        checkIfUserIsLoggedIn()
+        
         //This is creating the care team button from the top right and calls the presentContactdListViewController when clicked
         navigationItem.rightBarButtonItem =
             UIBarButtonItem(title: "Care Team", style: .plain, target: self,
                             action: #selector(presentContactsListViewController))
     }
 
+    func checkIfUserIsLoggedIn() {
+        if Auth.auth().currentUser == nil {
+            DispatchQueue.main.async {
+                let controller = LoginController()
+                let nav = UINavigationController(rootViewController: controller)
+                nav.modalPresentationStyle = .fullScreen
+                self.present(nav, animated: true, completion: nil)
+            }
+        }
+    }
+    
     //This is how we are displaying contacts
     @objc private func presentContactsListViewController() {
         //This is creating the viewController which displays the contacts, we just need to pass the storeManager

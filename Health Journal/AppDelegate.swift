@@ -9,11 +9,12 @@
 import UIKit
 import CareKit
 import Contacts
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
+    
+    
     // Manages synchronization of a CoreData store
     lazy var synchronizedStoreManager: OCKSynchronizedStoreManager = {
         
@@ -27,25 +28,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let manager = OCKSynchronizedStoreManager(wrapping: store)
         return manager
     }()
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        FirebaseApp.configure()
         return true
     }
-
+    
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
-
+    
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
+    
 }
 
 private extension OCKStore {
-
+    
     // Add tasks and contacts into the store in this function
     func populateSampleData() {
         //var taskObjects = [OCKTask]()
