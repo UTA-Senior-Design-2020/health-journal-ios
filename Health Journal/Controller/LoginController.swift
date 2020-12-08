@@ -26,6 +26,7 @@ class LoginController: UIViewController {
     private let passwordTextField: UITextField = {
         let tf = CustomTextField(placeholder: "Password")
         tf.isSecureTextEntry = true
+        tf.textContentType = .oneTimeCode
         
         return tf
     }()
@@ -54,7 +55,7 @@ class LoginController: UIViewController {
     private let dontHaveAccountButton: UIButton = {
         let button = UIButton(type: .system)
         button.attributedTitle(firstPart: "Don't have an account?", secondPart: "Sign up")
-        //button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
         
         return button
     }()
@@ -83,10 +84,10 @@ class LoginController: UIViewController {
         }
     }
     
-//    @objc func handleShowSignUp() {
-//        let controller = RegistrationController()
-//        navigationController?.pushViewController(controller, animated: true)
-//    }
+    @objc func handleShowSignUp() {
+        let controller = RegistrationController()
+        navigationController?.pushViewController(controller, animated: true)
+   }
     
     @objc func textDidChange(sender: UITextField) {
         if sender == emailTextField {

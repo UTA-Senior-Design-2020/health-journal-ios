@@ -12,6 +12,7 @@
 		0F417AC6257F43AD009E18D3 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F417AC5257F43AD009E18D3 /* CustomTextField.swift */; };
 		0F417ACC257F43E4009E18D3 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F417ACB257F43E4009E18D3 /* AuthenticationViewModel.swift */; };
 		0F417AD2257F44AD009E18D3 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F417AD1257F44AD009E18D3 /* AuthService.swift */; };
+		0F417AF625801642009E18D3 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F417AF525801642009E18D3 /* RegistrationController.swift */; };
 		0F48FCC424F76BC4001E36C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F48FCC324F76BC4001E36C6 /* AppDelegate.swift */; };
 		0F48FCC624F76BC4001E36C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F48FCC524F76BC4001E36C6 /* SceneDelegate.swift */; };
 		0F48FCC824F76BC4001E36C6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F48FCC724F76BC4001E36C6 /* ContentView.swift */; };
@@ -55,6 +56,7 @@
 		0F417AC5257F43AD009E18D3 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomTextField.swift; path = "Health Journal/Supporting files/CustomTextField.swift"; sourceTree = SOURCE_ROOT; };
 		0F417ACB257F43E4009E18D3 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		0F417AD1257F44AD009E18D3 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		0F417AF525801642009E18D3 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		0F48FCC024F76BC4001E36C6 /* Health Journal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Health Journal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F48FCC324F76BC4001E36C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F48FCC524F76BC4001E36C6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 			children = (
 				0F48FCC724F76BC4001E36C6 /* ContentView.swift */,
 				0F417ABB257F4363009E18D3 /* LoginController.swift */,
+				0F417AF525801642009E18D3 /* RegistrationController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 				0F48FCC624F76BC4001E36C6 /* SceneDelegate.swift in Sources */,
 				0F417AC6257F43AD009E18D3 /* CustomTextField.swift in Sources */,
 				2C34CEFF255E5FBC00ACF9D0 /* Tasks.swift in Sources */,
+				0F417AF625801642009E18D3 /* RegistrationController.swift in Sources */,
 				0F417ACC257F43E4009E18D3 /* AuthenticationViewModel.swift in Sources */,
 				0F417AD2257F44AD009E18D3 /* AuthService.swift in Sources */,
 				0F48FCC824F76BC4001E36C6 /* ContentView.swift in Sources */,
