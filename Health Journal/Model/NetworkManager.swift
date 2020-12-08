@@ -19,15 +19,17 @@ struct NetworkManager {
     }
     
     func fetchTasks(completion: @escaping (Tasks) -> Void){
-        let urlString = "http://localhost:5000/patients/\(self.userId)/tasks"
+        let urlString = "http://localhost:3000/tasks"
         AF.request(urlString).responseJSON{
             response in
             if let data = response.data{
                 do{
+                    //Issue is on the line right below. It is failing to do JSONDecoder. I didnt change a line from code on here so I am unsure,
+                    //why there is an issue now.
                     let response = try JSONDecoder().decode(Tasks.self, from: data)
                     completion(response)
                 }catch{
-                    print("Server Returned Nothing")
+                    print("DEBUG: Server Returned Nothing")
                 }
                 
             }

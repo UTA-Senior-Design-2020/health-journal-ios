@@ -17,7 +17,6 @@ class ContentView: OCKDailyPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //logUserOut()
         checkIfUserIsLoggedIn()
         
         //This is creating the care team button from the top right and calls the presentContactdListViewController when clicked

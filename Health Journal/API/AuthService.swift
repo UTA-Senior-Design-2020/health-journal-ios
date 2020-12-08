@@ -34,7 +34,6 @@ struct AuthService {
             let data: [String: Any] = ["email": credentials.email,
                                        "uid": uid]
             
-            //He Explains this around 6:30 in "Register User in Firebase" easy to understand once you look at firebase
             Firestore.firestore().collection("users").document(uid).setData(data, completion: completion)
         }
     }
